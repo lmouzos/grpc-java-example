@@ -1,0 +1,14 @@
+syntax = "proto3";
+package grpc_example;
+
+option java_multiple_files = true;
+option java_package = "com.lambda.mi.grpc.generated";
+
+service LargeEntitiesService {
+  rpc streamData(stream BytesMessage) returns (stream BytesMessage);
+  rpc streamFile(stream BytesMessage) returns (stream BytesMessage);
+}
+
+message BytesMessage {
+  bytes chunk = 1;
+}
